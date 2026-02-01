@@ -46,39 +46,80 @@ Normal(초중급)과 Expert(고급) 두 단계로 구성되어 있습니다.
 | Ch09 | 마이크로서비스와 확장 가능한 아키텍처 |
 | Ch10 | 프로덕션 배포와 운영 |
 
+---
+
+### React
+
+프론트엔드 라이브러리 React를 체계적으로 학습할 수 있는 커리큘럼입니다.
+Normal(초중급)과 Expert(고급) 두 단계로 구성되어 있습니다.
+
+| 과정 | 난이도 | 대상 | 설명 |
+|------|--------|------|------|
+| [react-normal](./react-normal/) | ⭐ ~ ⭐⭐⭐ | React 입문자 ~ 초중급 | 컴포넌트, Hooks, 라우팅 등 핵심 개념과 실습 |
+| [react-expert](./react-expert/) | ⭐⭐⭐ ~ ⭐⭐⭐⭐⭐ | 중급 이상 | 고급 패턴, 성능 최적화, 엔터프라이즈 아키텍처 |
+
+#### 챕터 구성
+
+**Normal (10개 챕터)**
+
+| 챕터 | 주제 |
+|------|------|
+| Ch01 | JSX와 컴포넌트 |
+| Ch02 | Props와 데이터 흐름 |
+| Ch03 | State와 이벤트 |
+| Ch04 | 조건부 렌더링과 리스트 렌더링 |
+| Ch05 | Hooks 기초 |
+| Ch06 | 폼과 사용자 입력 |
+| Ch07 | 사이드 이펙트와 생명주기 |
+| Ch08 | Context와 전역 상태 관리 |
+| Ch09 | React Router를 이용한 라우팅 |
+| Ch10 | 실전 프로젝트 |
+
+**Expert (10개 챕터)**
+
+| 챕터 | 주제 |
+|------|------|
+| Ch01 | React 내부 구조와 재조정(Reconciliation) |
+| Ch02 | 고급 Hooks 패턴 |
+| Ch03 | 성능 최적화 |
+| Ch04 | 상태 관리 아키텍처 |
+| Ch05 | React와 고급 TypeScript |
+| Ch06 | 테스팅 전략 |
+| Ch07 | Server Components와 SSR |
+| Ch08 | 디자인 패턴과 아키텍처 |
+| Ch09 | 빌드와 배포 파이프라인 |
+| Ch10 | 엔터프라이즈 프로젝트 |
+
 ## 레포지토리 구조
 
+모든 학습 자료는 동일한 구조를 따릅니다.
+
 ```
-dev-learning-claude-code/
-├── fastapi-normal/
-│   ├── chapters/
-│   │   └── ch01 ~ ch10/
-│   │       ├── concept.md          # 개념 설명
-│   │       └── practice/
-│   │           ├── example-01.py   # 예제 코드 1
-│   │           ├── example-02.py   # 예제 코드 2
-│   │           ├── exercise.md     # 연습 문제
-│   │           └── solution.py     # 풀이 코드
-│   └── resources/
-│       ├── glossary.md             # 용어 사전
-│       └── references.md           # 참고 자료
-├── fastapi-expert/
-│   ├── chapters/
-│   │   └── (동일 구조)
-│   └── resources/
-│       ├── glossary.md
-│       └── references.md
-└── README.md
+{주제}-{난이도}/                    # 예: fastapi-normal, react-expert
+├── chapters/
+│   └── ch01 ~ ch10/
+│       ├── concept.md              # 개념 설명
+│       └── practice/
+│           ├── example-01.*        # 예제 코드 1
+│           ├── example-02.*        # 예제 코드 2
+│           ├── exercise.md         # 연습 문제
+│           └── solution.*          # 풀이 코드
+├── resources/
+│   ├── glossary.md                 # 용어 사전
+│   └── references.md               # 참고 자료
+└── README.md                       # 커리큘럼 가이드
 ```
+
+> 코드 파일 확장자: FastAPI(`.py`), React Normal(`.jsx`), React Expert(`.tsx`)
 
 ## 학습 방법
 
 각 챕터별로 아래 순서를 따릅니다.
 
 1. `concept.md`를 읽고 핵심 개념을 이해한다
-2. `example-*.py` 예제 코드를 실행하며 동작을 확인한다
+2. `example-*` 예제 코드를 실행하며 동작을 확인한다
 3. `exercise.md`의 연습 문제를 직접 풀어본다
-4. 막히면 `solution.py`를 참고한다
+4. 막히면 `solution.*`를 참고한다
 5. `resources/glossary.md`에서 용어를 복습한다
 
 ## 생성 도구
