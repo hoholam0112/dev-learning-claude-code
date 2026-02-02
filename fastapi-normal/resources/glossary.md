@@ -10,15 +10,30 @@ FastAPI 학습 과정에서 자주 등장하는 용어를 정리했습니다.
 ### API (Application Programming Interface)
 소프트웨어 간의 상호작용을 정의하는 인터페이스. 웹 API는 HTTP를 통해 데이터를 주고받는 방식을 정의합니다. (Ch01)
 
+### AppException
+애플리케이션에서 사용하는 커스텀 예외의 기반 클래스. `status_code`, `error_code`, `message` 등의 속성을 포함하여 일관된 에러 처리를 가능하게 합니다. (Ch11)
+
 ### ASGI (Asynchronous Server Gateway Interface)
 Python 비동기 웹 서버와 프레임워크 간의 표준 인터페이스. FastAPI는 ASGI 기반 프레임워크입니다. (Ch01)
 
 ### async/await
-Python의 비동기 프로그래밍 키워드. `async def`로 비동기 함수를 정의하고, `await`로 비동기 작업을 기다립니다. (Ch01)
+Python의 비동기 프로그래밍 키워드. `async def`로 비동기 함수를 정의하고, `await`로 비동기 작업을 기다립니다. (Ch01, Ch09)
+
+### asyncio
+Python 표준 라이브러리의 비동기 I/O 프레임워크. 이벤트 루프, 코루틴, Task 등을 제공하며 `asyncio.gather()`, `asyncio.sleep()` 등의 함수를 포함합니다. (Ch09)
+
+### asyncio.gather()
+여러 코루틴을 동시에 실행하고 모든 결과를 모아서 반환하는 asyncio 함수. 순차 실행 대비 큰 성능 향상을 제공합니다. (Ch09)
+
+### await
+비동기 함수 내에서 코루틴의 완료를 기다리는 키워드. `await` 키워드를 만나면 이벤트 루프가 다른 작업을 처리할 수 있습니다. (Ch09)
 
 ---
 
 ## B
+
+### BackgroundTasks
+FastAPI에서 응답을 반환한 후 백그라운드에서 작업을 실행하기 위한 클래스. 이메일 발송, 로그 기록 등 응답에 영향을 주지 않는 작업에 사용합니다. (Ch09)
 
 ### BaseModel
 Pydantic의 기본 모델 클래스. 데이터 검증과 직렬화를 자동으로 처리합니다. (Ch03)
@@ -32,6 +47,9 @@ SQLAlchemy에서 양방향 관계를 설정할 때 사용하는 매개변수. �
 ---
 
 ## C
+
+### Coroutine (코루틴)
+`async def`로 정의된 함수가 호출될 때 반환하는 객체. `await`로 실행하며, 이벤트 루프에 의해 스케줄링됩니다. (Ch09)
 
 ### CORS (Cross-Origin Resource Sharing)
 웹 브라우저에서 서로 다른 출처(Origin) 간의 리소스 공유를 허용하는 HTTP 메커니즘. 프론트엔드-백엔드 통신에 필수적입니다. (Ch06)
@@ -58,6 +76,9 @@ SQLAlchemy 세션에서 트랜잭션을 확정하여 데이터베이스에 변�
 ### Depends
 FastAPI의 의존성 주입 함수. 엔드포인트 함수의 매개변수에 `Depends(함수)`를 사용하여 의존성을 주입합니다. (Ch05)
 
+### dictConfig
+Python `logging.config` 모듈의 함수. 딕셔너리 형태로 로깅 설정(로거, 핸들러, 포매터 등)을 한 번에 구성합니다. (Ch10)
+
 ### declarative_base()
 SQLAlchemy에서 모든 ORM 모델의 부모 클래스를 생성하는 함수. (Ch07)
 
@@ -68,6 +89,15 @@ SQLAlchemy에서 모든 ORM 모델의 부모 클래스를 생성하는 함수. (
 ### Endpoint (엔드포인트)
 API에서 특정 URL 경로와 HTTP 메서드의 조합으로 정의되는 접근 지점. 예: `GET /users`, `POST /items`. (Ch01)
 
+### ErrorResponse
+에러 응답의 표준 형식을 정의하는 Pydantic 모델. `error_code`, `message`, `detail`, `timestamp` 등의 필드를 포함하여 일관된 에러 응답을 제공합니다. (Ch11)
+
+### Event Loop (이벤트 루프)
+비동기 프로그래밍의 핵심 메커니즘. 코루틴들의 실행을 스케줄링하고, I/O 작업 대기 중 다른 작업을 처리합니다. FastAPI는 내부적으로 uvloop 또는 asyncio 이벤트 루프를 사용합니다. (Ch09)
+
+### exception_handler
+FastAPI 앱에 전역 예외 핸들러를 등록하는 데코레이터. `@app.exception_handler(ExceptionClass)`로 특정 예외 타입에 대한 핸들러를 정의합니다. (Ch11)
+
 ### Engine (엔진)
 SQLAlchemy에서 데이터베이스와의 연결 풀(Connection Pool)을 관리하는 객체. `create_engine()`으로 생성합니다. (Ch07)
 
@@ -77,6 +107,9 @@ SQLAlchemy에서 데이터베이스와의 연결 풀(Connection Pool)을 관리�
 
 ### FastAPI
 Python 기반의 고성능 웹 프레임워크. 타입 힌트를 활용하여 자동 문서 생성, 데이터 검증 등을 제공합니다. (Ch01)
+
+### Formatter
+Python logging에서 로그 메시지의 출력 형식을 정의하는 클래스. 타임스탬프, 로그 레벨, 메시지 등의 포맷을 지정합니다. (Ch10)
 
 ### Field
 Pydantic에서 모델 필드의 메타데이터와 검증 규칙을 정의하는 함수. `min_length`, `ge`, `description` 등을 설정합니다. (Ch03)
@@ -99,6 +132,12 @@ Pydantic V2의 설정 옵션. `True`로 설정하면 SQLAlchemy 모델 객체를
 
 ### get_db
 FastAPI에서 데이터베이스 세션을 관리하는 의존성 함수. `yield` 패턴을 사용하여 세션의 생성과 종료를 안전하게 처리합니다. (Ch07)
+
+### Handler
+Python logging에서 로그 메시지를 특정 대상(콘솔, 파일, 네트워크 등)으로 전송하는 객체. `StreamHandler`, `FileHandler`, `RotatingFileHandler` 등이 있습니다. (Ch10)
+
+### httpx
+Python의 비동기 HTTP 클라이언트 라이브러리. `httpx.AsyncClient`로 FastAPI 내에서 외부 API를 비동기로 호출할 수 있습니다. (Ch09)
 
 ---
 
@@ -129,6 +168,18 @@ SQLAlchemy에서 관계 데이터를 미리 함께 로드(Eager Loading)하는 �
 
 ### Lazy Loading (지연 로딩)
 SQLAlchemy의 기본 관계 데이터 로딩 방식. 관계 속성에 실제로 접근할 때 쿼리가 실행됩니다. (Ch07)
+
+### Log Level (로그 레벨)
+로그 메시지의 심각도를 나타내는 단계. DEBUG(10) < INFO(20) < WARNING(30) < ERROR(40) < CRITICAL(50) 순서로, 설정된 레벨 이상의 메시지만 출력됩니다. (Ch10)
+
+### Log Rotation (로그 로테이션)
+로그 파일이 일정 크기 또는 기간에 도달하면 새 파일로 교체하는 방식. `RotatingFileHandler`(크기 기반) 또는 `TimedRotatingFileHandler`(시간 기반)를 사용합니다. (Ch10)
+
+### Logger
+Python logging의 핵심 객체. `logging.getLogger(name)`으로 생성하며, 로그 메시지의 수집과 분배를 담당합니다. 계층적 이름 구조(예: `app.api.users`)를 지원합니다. (Ch10)
+
+### logging
+Python 표준 라이브러리의 로깅 모듈. Logger, Handler, Formatter의 3계층 구조로 유연한 로그 관리를 제공합니다. `print()` 대신 사용하면 레벨별 필터링, 파일 출력 등이 가능합니다. (Ch10)
 
 ---
 
@@ -217,6 +268,9 @@ Python에서 가장 널리 사용되는 ORM 라이브러리. SQL을 직접 작�
 ### Starlette
 FastAPI의 기반이 되는 Python ASGI 프레임워크. 라우팅, 미들웨어, 웹소켓 등의 기능을 제공합니다. (Ch01)
 
+### Structured Logging (구조화된 로깅)
+로그 메시지를 JSON 등의 구조화된 형식으로 출력하는 방식. 로그 검색, 파싱, 분석이 용이하며, `request_id` 등의 컨텍스트 정보를 포함할 수 있습니다. (Ch10)
+
 ### status_code
 HTTP 응답의 상태를 나타내는 숫자 코드. 200(성공), 201(생성됨), 404(찾을 수 없음), 422(유효성 검사 실패) 등이 있습니다. (Ch04)
 
@@ -229,6 +283,9 @@ FastAPI가 자동으로 생성하는 대화형 API 문서 UI. `/docs` 경로에�
 
 ### TestClient
 FastAPI 앱을 실제 서버 없이 테스트할 수 있게 해주는 클라이언트. `from fastapi.testclient import TestClient`로 사용합니다. (Ch01)
+
+### trace_id
+요청을 고유하게 식별하는 ID. 미들웨어에서 UUID로 생성하여 요청 처리 전 과정(로그, 에러 응답 등)에 전파합니다. 분산 시스템에서 요청 추적에 필수적입니다. (Ch11)
 
 ### Type Hint (타입 힌트)
 Python에서 변수나 함수의 매개변수/반환값의 타입을 명시하는 문법. FastAPI는 타입 힌트를 기반으로 데이터 검증과 문서 생성을 수행합니다. (Ch01)
