@@ -1,0 +1,4 @@
+interface:
+  display_name: "Learning Material Builder"
+  short_description: "Generate developer learning curricula and exercises"
+  default_prompt: "Use $learning-material-builder to generate a structured developer learning curriculum with concept and exercise files."
